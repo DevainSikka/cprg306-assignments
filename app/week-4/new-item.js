@@ -7,7 +7,7 @@ export default function NewItem() {
    function increment() {
         setQuantity(quantity + 1);
 
-    }
+    }     
 
     function decrement() {
         setQuantity(quantity - 1);
