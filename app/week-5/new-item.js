@@ -34,7 +34,6 @@ export default function NewItem() {
       
       <form onSubmit={handleSubmit} className="space-y-5">
         
-        {/* Name Input */}
         <div>
           <label className="block text-base font-medium text-gray-700 mb-1">Name</label>
           <input
@@ -46,7 +45,6 @@ export default function NewItem() {
           />
         </div>
 
-        {/* Quantity Controls */}
         <div className="text-center">
           <p className="text-lg font-semibold text-gray-800 mb-3">Quantity: {quantity}</p>
           <div className="flex justify-center gap-6">
@@ -68,7 +66,6 @@ export default function NewItem() {
           </div>
         </div>
 
-        {/* Category Dropdown */}
         <div>
           <label className="block text-base font-medium text-gray-700 mb-1">Category</label>
           <select
@@ -90,7 +87,6 @@ export default function NewItem() {
           </select>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-blue-500 text-white p-3 rounded-xl shadow-md hover:bg-blue-600 transition"
