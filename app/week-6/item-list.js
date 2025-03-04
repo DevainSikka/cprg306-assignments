@@ -6,7 +6,6 @@ import itemsData from "./items.json";
 export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
 
-  // Sort items based on the selected sorting preference
   const sortedItems = [...itemsData].sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
@@ -35,11 +34,10 @@ export default function ItemList() {
             sortBy === "category" ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-900"
             }`}
 
-        >
-          Sort by Category  #sikka bai ikk bar harsimrat badal di chattan da mauka mil jave ta swaad aa javee aahaa ahaha
+        > Sort by Category
         </button>
       </div>
-
+//gg/ghmtrlkghnroikigtjreopgtrtrklkghtrnthrjlk
       <ul className="space-y-4">
         {sortedItems.map((item) => (
           <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
