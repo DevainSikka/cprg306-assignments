@@ -37,7 +37,6 @@ export default function ItemList() {
         > Sort by Category
         </button>
       </div>
-//gg/ghmtrlkghnroikigtjreopgtrtrklkghtrnthrjlk
       <ul className="space-y-4">
         {sortedItems.map((item) => (
           <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
