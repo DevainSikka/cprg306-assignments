@@ -13,6 +13,7 @@ export default function Home() {
         <Link href="./week-7">Week-7</Link>
         <Link href="./week-8">Week-8</Link>
         <Link href="./week-9">Week-9</Link>
+        <Link href="./week-10">Week-10</Link>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
        
