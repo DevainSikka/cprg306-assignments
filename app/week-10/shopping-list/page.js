@@ -1,37 +1,37 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import NewItem from "./new-item";
 import ItemList from "../_utils/item-list";
 import MealIdeas from "./meal-ideas";
-import { getItems, addItem } from "../_services/shopping-list-service.js";
+import { getItems, addItem } from "../_services/shopping-list-service";
+import { useUserAuth } from "../_utils/auth-context";
 
 export default function Page() {
   const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState("");
-  const user = { uid: "some-uid" }; // Replace with actual user authentication logic
-
-  useEffect(() => {
-    const loadItems = async () => {
-      const items = await getItems(user.uid);
-      setItems(items || []);
-    };
-
-    loadItems();
-  }, []);
+  const { user } = useUserAuth();
 
   const handleAddItem = (item) => {
-    addItem(item, user.uid).then((newItemId) => {
-      setItems((prevItems) => [
-        ...prevItems,
-        {
-          id: newItemId,
-          name: item.name,
-          quantity: item.quantity,
-          userId: user.uid,
-        },
-      ]);
-    });
+    console.log(item);
+    addItem(user.uid, item)
+      .then((response) => {
+        setItems([...items, response.data]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
+
+  const loadItems = async () => {
+    const items = await getItems(user.uid);
+    setItems(items || []);
+  };
+
+  useEffect(() => {
+    loadItems();
+  }, [user]);
+
+  loadItems();
 
   const handleItemSelect = (itemName) => {
     const cleanedItemName = itemName
@@ -44,10 +44,9 @@ export default function Page() {
       .replace(/s$/, "");
 
     console.log(cleanedItemName);
+
     setSelectedItemName(cleanedItemName);
   };
-
-  console.log("The file loads");
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-6">
