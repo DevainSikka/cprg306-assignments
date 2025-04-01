@@ -15,7 +15,7 @@ export default function Page() {
     console.log(item);
     addItem(user.uid, item)
       .then((response) => {
-        setItems([...items, response.data]);
+        setItems([...items, item]);
       })
       .catch((error) => {
         console.error(error);
